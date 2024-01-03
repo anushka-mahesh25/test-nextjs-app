@@ -35,7 +35,12 @@ export interface AccordionProps {
   defaultId?: string;
 }
 
-const MenuAccordion = ({ data, className, showIcons = false, defaultId }: AccordionProps) => {
+const MenuAccordion = ({
+  data,
+  className: styles,
+  showIcons = false,
+  defaultId,
+}: AccordionProps) => {
   const [expandedPanelId, setExpandedPanelId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -81,7 +86,7 @@ const MenuAccordion = ({ data, className, showIcons = false, defaultId }: Accord
   );
 
   return (
-    <div className={classNames(defaultStyles.accordion, className)}>
+    <div className={classNames(defaultStyles.accordion, styles)}>
       {data?.map(renderAccordionItem)}
     </div>
   );

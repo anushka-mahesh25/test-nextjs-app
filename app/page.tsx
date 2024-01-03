@@ -3,7 +3,7 @@
 // };
 'use client';
 
-import { SideMenu } from './SideMenu';
+import SideMenu from './SideMenu';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';

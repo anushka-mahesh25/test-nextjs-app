@@ -1,20 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
-import { IconButton, SvgIcon, Typography } from '@mui/material'; // Import Typography from MUI
-import MenuAccordion from '../MenuAccordion';
+// SideMenu.tsx
 
+// Import the necessary libraries and components
+import React, { useEffect, useRef, useState } from 'react';
+import { IconButton, SvgIcon } from '@mui/material';
+import classNames from 'classnames';
+import MenuAccordion from '../MenuAccordion';
 import styles from './SideMenu.module.scss';
 import MenuListMockData from './MenuListMockData.json';
 
-/**
- * SideMenu component
- */
-
-export const SideMenu = () => {
+// SideMenu component
+const SideMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const menuListData = MenuListMockData;
-  // useGetBranchConfig('menu')?.data;
-
   const refDrawer = useRef(null);
 
   useEffect(() => {
@@ -25,23 +22,24 @@ export const SideMenu = () => {
     };
 
     document.addEventListener('mousedown', handleClick);
+
     return () => {
       document.removeEventListener('mousedown', handleClick);
     };
   }, [menuOpen]);
 
-  const handleMenuClose = () => {
-    setMenuOpen(false);
-  };
-
   return (
     <>
       <div
         style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-        ref={refDrawer}>
+        ref={refDrawer}
+        className={styles.menuContainer}>
         <IconButton
           id="btn-hamburger"
-          className="text-gray-500 hover:text-gray-600 sidebarBtnCss"
+          className={classNames(
+            'text-gray-500 hover:text-gray-600 sidebarBtnCss',
+            styles.hamburgerButton,
+          )}
           aria-controls="sidebar"
           onClick={() => setMenuOpen((open) => !open)}
           data-cy="leftTab">
@@ -51,7 +49,7 @@ export const SideMenu = () => {
             <rect x="4" y="17" width="16" height="2" />
           </SvgIcon>
         </IconButton>
-        {menuListData && <MenuAccordion data={menuListData} showIcons />}
+        {menuListData && <MenuAccordion data={menuListData} styles={styles} showIcons />}
       </div>
     </>
   );

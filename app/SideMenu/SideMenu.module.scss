@@ -7,13 +7,14 @@
   height: 100vh;
   padding: 0px 10px;
   background-color: $primary-blue;
-  color: $white;
+  color: $primary-blue;
   font-weight: bold;
   z-index: 9;
   border: none;
   margin: 0;
   overflow-y: auto;
 }
+
 .customAccordion {
   border: none;
   margin: 0;
@@ -21,19 +22,20 @@
   box-shadow: none;
   background-color: $primary-blue;
   position: relative;
-}
 
-.customAccordion::before {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 10px; 
-  background: none;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-right: 10px;
+  &::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: $primary-blue;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 10px;
+
+  }
 }
 
 .summary {
@@ -51,12 +53,12 @@
 }
 
 .icon {
-  color: $white;
+  color: $primary-blue;
   margin: 3px 10px 0 0;
 }
 
 .title {
-  color: $white;
+  color: $primary-blue;
   font-weight: bold;
 }
 
@@ -70,21 +72,20 @@
 
 .menuList {
   list-style-type: none;
-  border-left: 1px solid #d0d3d4;
+  border-left: 1px solid $light-grey-text-color;
   padding-left: 10px;
 }
 
 .menuItem {
-  color: #fff;
+  color: $primary-blue;
   display: block;
   font-size: 15px;
   line-height: 18px;
 }
 
 .menuLink {
-  color: $white;
+  color: $primary-blue;
   text-decoration: none;
-  color: #fff;
   display: block;
   font-size: 15px;
   padding: 14px;
