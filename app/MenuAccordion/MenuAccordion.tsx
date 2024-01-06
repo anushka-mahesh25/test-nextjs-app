@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DynamicIcon } from '../utils/iconHelper';
+import classNames from 'classnames';
 import {
   Accordion as MuiAccordion,
   AccordionDetails,
@@ -7,7 +7,8 @@ import {
   Typography,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import classNames from 'classnames';
+
+import { DynamicIcon } from '../utils/iconHelper';
 import SubMenu from './SubMenu';
 import defaultStyles from './MenuAccordion.module.scss';
 
@@ -30,17 +31,12 @@ export interface AccordionItem {
 
 export interface AccordionProps {
   data: AccordionItem[];
-  className?: string;
+  styles?: any;
   showIcons?: boolean;
   defaultId?: string;
 }
 
-const MenuAccordion = ({
-  data,
-  className: styles,
-  showIcons = false,
-  defaultId,
-}: AccordionProps) => {
+const MenuAccordion = ({ data, styles, showIcons = false, defaultId }: AccordionProps) => {
   const [expandedPanelId, setExpandedPanelId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -60,25 +56,27 @@ const MenuAccordion = ({
       expanded={expandedPanelId === item.id}
       onChange={(e, isExpanded) => handleChange(item.id)(isExpanded)}
       defaultExpanded={item.id === expandedPanelId}
-      className={classNames(defaultStyles.customAccordion)}>
+      className={classNames(defaultStyles.accordion, styles?.accordion)}>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        className={classNames(defaultStyles.summary)}>
+        expandIcon={<ExpandMoreIcon className={defaultStyles.expendIcon} />}
+        className={classNames(defaultStyles.summary, styles?.summary)}>
         {showIcons && (
           <DynamicIcon
-            className={classNames(defaultStyles.icon)}
+            className={classNames(defaultStyles.icon, styles?.icon)}
             size={item.iconSize ?? DEFAULT_ICON_SIZE}
             iconName={item.icon}
             data-testid="dynamic-icon"
           />
         )}
-        <Typography className={classNames(defaultStyles.title)}>{item.title}</Typography>
+        <Typography className={classNames(defaultStyles.title, styles?.title)}>
+          {item.title}
+        </Typography>
       </AccordionSummary>
 
-      <AccordionDetails className={classNames(defaultStyles.details)}>
-        <ul className={classNames(defaultStyles.menuList)}>
+      <AccordionDetails className={classNames(defaultStyles.details, styles?.details)}>
+        <ul className={classNames(defaultStyles.menuList, styles?.menuList)}>
           {item.subMenu?.map((subMenu) => (
-            <SubMenu key={subMenu.id} subMenu={subMenu} styles={defaultStyles} />
+            <SubMenu key={subMenu.id} subMenu={subMenu} styles={styles} />
           ))}
         </ul>
       </AccordionDetails>
@@ -86,7 +84,7 @@ const MenuAccordion = ({
   );
 
   return (
-    <div className={classNames(defaultStyles.accordion, styles)}>
+    <div className={classNames(defaultStyles.customAccordion, styles?.customAccordion)}>
       {data?.map(renderAccordionItem)}
     </div>
   );

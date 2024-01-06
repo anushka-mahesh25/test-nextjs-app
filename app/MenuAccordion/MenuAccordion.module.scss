@@ -12,10 +12,14 @@
   }
 }
 
+.expendMoreIcon {
+  color: $black;
+}
+
 .accordion {
   top: 0;
   left: 0;
-  background-color: $primary-blue;
+  background-color: $white;
   font-weight: bold;
   z-index: 9;
   border: none;
