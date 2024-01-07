@@ -50,7 +50,7 @@ const SideMenu = () => {
             <rect x="4" y="17" width="16" height="2" />
           </SvgIcon>
         </IconButton>
-        {menuOpen && menuListData && <MenuAccordion data-testid="menu-accordion" data={menuListData} styles={styles} showIcons />}
+        {menuOpen && menuListData && <MenuAccordion data={menuListData} styles={styles} showIcons />}
       </div>
     </>
   );

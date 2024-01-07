@@ -12,19 +12,20 @@ describe('SideMenu', () => {
   
   test('Clicking on the hamburger icon toggles the menu', async () => {
     render(<SideMenu />);
-  
-    // Check if MenuAccordion is initially not rendered
-    expect(screen.queryByTestId('menu-accordion')).toBeNull();
-  
+
     const hamburgerButton = screen.getByTestId('btn-hamburger');
   
     // Simulate a click on the hamburger icon
     fireEvent.click(hamburgerButton);
-  
-    // Wait for the MenuAccordion to appear
-    await waitFor(() => {
-      expect(screen.getByTestId('menu-accordion')).toBeInTheDocument();
-    });
+
+    const AccordionTitle = screen.getByText('Branch Management');
+
+    expect(AccordionTitle).toBeInTheDocument();
+
+    //Again on icon click
+    fireEvent.click(hamburgerButton);
+
+    expect(AccordionTitle).not.toBeInTheDocument();
   });
 
 });
