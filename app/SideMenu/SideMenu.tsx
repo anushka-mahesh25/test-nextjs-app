@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { IconButton, SvgIcon } from '@mui/material';
 import classNames from 'classnames';
 import MenuAccordion from '../MenuAccordion';
-import styles from './SideMenu.module.scss';
+import defaultStyles from './SideMenu.module.scss';
 import MenuListMockData from './MenuListMockData.json';
 
 // SideMenu component
@@ -33,13 +33,13 @@ const SideMenu = () => {
       <div
         style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         ref={refDrawer}
-        className={styles.menuContainer}>
+        className={defaultStyles.menuContainer}>
         <IconButton
           id="btn-hamburger"
           data-testid="btn-hamburger"
           className={classNames(
             'text-gray-500 hover:text-gray-600 sidebarBtnCss',
-            styles.hamburgerButton,
+            defaultStyles.hamburgerButton,
           )}
           aria-controls="sidebar"
           onClick={() => setMenuOpen((open) => !open)}
@@ -50,7 +50,7 @@ const SideMenu = () => {
             <rect x="4" y="17" width="16" height="2" />
           </SvgIcon>
         </IconButton>
-        {menuOpen && menuListData && <MenuAccordion data={menuListData} styles={styles} showIcons />}
+        {menuOpen && menuListData && <MenuAccordion data={menuListData} styles={defaultStyles} showIcons  />}
       </div>
     </>
   );
