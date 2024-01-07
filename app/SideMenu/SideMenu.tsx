@@ -12,11 +12,11 @@ import MenuListMockData from './MenuListMockData.json';
 const SideMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuListData = MenuListMockData;
-  const refDrawer = useRef(null);
+  const refDrawer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClick = (e) => {
-      if (menuOpen && refDrawer.current && !refDrawer.current.contains(e.target)) {
+    const handleClick = (e: MouseEvent) => {
+      if (menuOpen && refDrawer.current && !refDrawer.current.contains(e.target as Node)) {
         setMenuOpen(false);
       }
     };
@@ -36,6 +36,7 @@ const SideMenu = () => {
         className={styles.menuContainer}>
         <IconButton
           id="btn-hamburger"
+          data-testid="btn-hamburger"
           className={classNames(
             'text-gray-500 hover:text-gray-600 sidebarBtnCss',
             styles.hamburgerButton,
@@ -49,7 +50,7 @@ const SideMenu = () => {
             <rect x="4" y="17" width="16" height="2" />
           </SvgIcon>
         </IconButton>
-        {menuListData && <MenuAccordion data={menuListData} styles={styles} showIcons />}
+        {menuOpen && menuListData && <MenuAccordion data-testid="menu-accordion" data={menuListData} styles={styles} showIcons />}
       </div>
     </>
   );

@@ -58,7 +58,7 @@ const MenuAccordion = ({ data, styles, showIcons = false, defaultId }: Accordion
       defaultExpanded={item.id === expandedPanelId}
       className={classNames(defaultStyles.accordion, styles?.accordion)}>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon className={defaultStyles.expendIcon} />}
+        expandIcon={<ExpandMoreIcon className={defaultStyles.expendMoreIcon} />}
         className={classNames(defaultStyles.summary, styles?.summary)}>
         {showIcons && (
           <DynamicIcon

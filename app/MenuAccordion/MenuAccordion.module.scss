@@ -13,7 +13,8 @@
 }
 
 .expendMoreIcon {
-  color: $black;
+  color: $white;
+  font-size: 35px;
 }
 
 .accordion {
@@ -41,16 +42,17 @@
 }
 
 .icon {
-  margin: auto 0;
+  margin:auto 0;
+  font-size: 22px;
 }
 
 .title {
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 18px;
   width: 100%;
-  padding: 14px 8px;
+  padding: 8px;
   cursor: pointer;
   border: none;
+  margin-left: 3px;
 }
 
 .details {
@@ -61,9 +63,11 @@
 }
 
 .menuList {
+  margin: 0;
   list-style-type: none;
   border-left: 1px solid $light-grey-text-color;
   padding-left: 10px;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .menuItem,
@@ -72,12 +76,13 @@
   font-size: 15px;
   line-height: 18px;
   text-decoration: none;
-  padding: 14px;
+  padding: 3px;
   color: $light-grey-text-color;
   border-radius: 4px;
+  font-weight: 300;
+}
 
-  &:hover {
-    background-color: $primary-grey;
-    cursor: pointer;
-  }
+.menuLink:hover {
+  background-color:$ui-hover-color;
+  cursor: pointer;
 }
