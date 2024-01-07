@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent,waitFor,screen } from '@testing-library/react';
 import SideMenu from './SideMenu';
 
-describe('MenuAccordion', () => {
+describe('SideMenu', () => {
     
   test('SideMenu icon renders correctly', () => {
     const { getByTestId } = render(<SideMenu />);
@@ -20,8 +20,6 @@ describe('MenuAccordion', () => {
   
     // Simulate a click on the hamburger icon
     fireEvent.click(hamburgerButton);
-
-    console.log('MenuAccordion after 2nd click:', screen.queryByTestId('menu-accordion'));
   
     // Wait for the MenuAccordion to appear
     await waitFor(() => {

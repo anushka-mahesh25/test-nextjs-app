@@ -11,7 +11,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 export default function Page() {
   return (
     <>
-      {/* <h1>App Router</h1> */}
+      <h1>App Router</h1>
       <SideMenu />
     </>
   );
