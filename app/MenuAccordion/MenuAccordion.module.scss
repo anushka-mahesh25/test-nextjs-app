@@ -8,12 +8,11 @@
     right: 0;
     height: 1px;
     content: '';
-    background-color: $white;
   }
 }
 
 .expendMoreIcon {
-  color: $white;
+  color: $black;
   font-size: 35px;
 }
 
@@ -29,6 +28,7 @@
 }
 
 .customAccordion {
+  width: max-content;
   box-shadow: none;
   margin: 0 !important;
 }
@@ -42,7 +42,7 @@
 }
 
 .icon {
-  margin:auto 0;
+  margin: auto 0;
   font-size: 22px;
 }
 
@@ -59,7 +59,7 @@
   background-color: $white;
   overflow: hidden;
   transition: height ease 0.2s;
-  padding: 0 20px 8px 22px;
+  padding: 8px 22px 8px;
 }
 
 .menuList {
@@ -67,7 +67,7 @@
   list-style-type: none;
   border-left: 1px solid $light-grey-text-color;
   padding-left: 10px;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .menuItem,
@@ -83,6 +83,6 @@
 }
 
 .menuLink:hover {
-  background-color:$ui-hover-color;
+  background-color: $primary-grey;
   cursor: pointer;
 }

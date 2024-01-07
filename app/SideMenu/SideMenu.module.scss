@@ -12,39 +12,37 @@
   }
 }
 
-.accordion {
-  top: 0;
-  left: 0;
-  border: none;
-  overflow-y: auto;
-  margin: 0 !important;
+.expendMoreIcon {
+  color: $white;
+  font-size: 35px;
 }
-.customAccordion {
+
+.menuContainer {
+  position: fixed;
+  top: 10px;
+  left: 0;
+}
+
+.accordion,
+.customAccordion,
+.summary,
+.details,
+.menuList {
   border: none;
   margin: 0;
   padding: none;
-  box-shadow: none;
-  background-color: $primary-blue;
-  position: relative;
 }
 
-// .customAccordion::before {
-//   content: '';
-//   display: block;
-//   width: 10px;
-//   height: 10px;
-//   background: none;
-//   position: absolute;
-//   left: 0;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   margin-right: 10px;
-// }
+.accordion,
+.customAccordion,
+.details,
+.menuList {
+  background-color: $primary-blue;
+}
 
 .summary {
   min-width: max-content;
-  margin: 0;
-  background-color: $primary-blue;
+  background-color: $primary-blue !important;
   font-size: 18px;
   text-align: left;
   font-weight: 700;
@@ -52,58 +50,33 @@
   padding: 14px 8px;
   cursor: pointer;
   line-height: 18px;
-  border: none;
-  margin: 0;
   @extend %before;
   & > * {
-    margin: 0 !important;
+    margin: 0;
   }
 }
 
-.icon {
+.icon,
+.title,
+.menuItem,
+.menuLink {
   color: $white;
-  margin: auto 0;
-}
-
-.title {
-  color: $white;
-  font-weight: bold;
-}
-
-.details {
-  padding: 10px;
-  background-color: $primary-blue;
-  overflow: hidden;
-  transition: height ease 0.2s;
-  padding: 9px 10px 20px 15px;
+  display: block;
+  font-size: 15px;
+  line-height: 18px;
 }
 
 .menuList {
-  list-style-type: none;
   border-left: 1px solid #d0d3d4;
   padding-left: 10px;
 }
 
-.menuItem {
-  color: #fff;
-  display: block;
-  font-size: 15px;
-  line-height: 18px;
-}
-
 .menuLink {
-  color: $white;
   text-decoration: none;
-  color: #fff;
-  display: block;
-  font-size: 15px;
   padding: 14px;
-  line-height: 18px;
 }
 
-.menuContainer{
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 10px 0 0 10px;
+.menuLink:hover {
+  background-color: $dark-blue;
+  cursor: pointer;
 }

@@ -22,3 +22,4 @@ export * from './BoxIcon';
 export * from './DollarSign';
 export * from './Headset';
 export * from './CodeBranch';
+export * from './HamburgerIcon';
